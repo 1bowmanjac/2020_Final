@@ -24,30 +24,13 @@ public abstract class Game extends JPanel implements SoundHandling{
 	public boolean exitStatus;
 	
 	protected String name;
-	
-	public Button button = new Button();
+
 	
 	public Song song =  new Song("songs/Tetris Official Theme song.wav");
 	
 	public int getScore() {
 		return score;}
-	
-	@SuppressWarnings("resource")
-	public int getHighScore(File f) throws FileNotFoundException{
-		
-		Scanner scan = new Scanner(f);
-		
-		return scan.nextInt();}
-	
-	public void updateScore(String file) {
-		
-		try {
-			Writer w = new FileWriter(file);
-			w.write(Integer.toString(high_score));
-			w.close();}
-		
-		catch (IOException ex) {}
-	}
+
 	
 	public Font regFont(int style, int num) {
 		
@@ -78,7 +61,5 @@ public abstract class Game extends JPanel implements SoundHandling{
 	public abstract void run();
 	
 	public String getName() {return name;}
-	
-	public abstract void setVisibility(boolean b);
 	
 }

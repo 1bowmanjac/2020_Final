@@ -130,15 +130,6 @@ public class Tetris extends Game {
 		
 			return false;}
 	
-	public boolean isAtBottom() {
-		
-		for (Point p : controlPiece[rotation]) {
-			if ( (int) p.getY() + changeY == 22) {
-				return true;}
-		}
-		
-		return false;}
-	
 	public void glue() {
 		
 		for (Point p : controlPiece[rotation]) {
@@ -217,71 +208,8 @@ public class Tetris extends Game {
 		
 		return false;}
 	
-//	public void startScreen(Graphics g) {
-//		g.setFont(regFont(Font.BOLD, 60));
-//		g.drawString("Tetris", 300, 300);
-//
-//		Button play = new Button(150, 550, 300, 150, "Play");
-//		play.setMouseCoordinates(this.mouseX, this.mouseY);
-//		play.draw(g);
-//
-//		if (play.hoversOver(mouseX, mouseY) && click) {
-//			show = 1;}
-//
-//		Button exit = new Button(750, 550, 300, 150, "Exit");
-//		exit.setMouseCoordinates(this.mouseX, this.mouseY);
-//		exit.draw(g);
-//
-//		if (exit.hoversOver(mouseX, mouseY) && click) {
-//			//TODO fix this
-//
-//			//System.out.println("Fix 1");
-//
-//			j.setVisible(false);
-//			stopSound();
-////			MainMenu.back();
-//			click = false;}
-//
-//		repaint();
-//	}
-	
 	public void gameOver(Graphics g) throws IOException {
-		g.setFont(regFont(Font.BOLD, 60));
-		g.drawString("Game Over", 300, 200);
-		
-		Button again = new Button(150, 300, 300, 150, "Play");
-		again.setMouseCoordinates(this.mouseX, this.mouseY);
-		again.draw(g);
-		
-		if (again.hoversOver(mouseX, mouseY) && click) {
-			playAgain();}
-
-
-		//added the highscore button that prints all highscores to console
-		Button highScores = new Button(400, 500, 400, 150, "HighScores");
-		highScores.setMouseCoordinates(this.mouseX, this.mouseY);
-		highScores.draw(g);
-
-		if (highScores.hoversOver(mouseX, mouseY) && click) {
-			click = false;
-			//print the new list to console
-			Socket socket = new Socket("localhost", 25505);
-			Client client = new Client(socket);
-			String HS = client.GETHIGHSCORES();
-			System.out.println(HS);
-		}
-		
-		Button exit = new Button(750, 300, 300, 150, "Exit");
-		exit.setMouseCoordinates(this.mouseX, this.mouseY);
-		exit.draw(g);
-		
-		if (exit.hoversOver(mouseX, mouseY) && click) {
-
-			click = false;
-			System.exit(0);
-			playAgain();}
-		
-			repaint();
+		j.setVisible(false);
 	}
 	
 	public  void displayScore(Graphics g) {
@@ -290,10 +218,6 @@ public class Tetris extends Game {
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
-//		if (show == 0) {
-//			startScreen(g);
-//		}
 		
 		if (show == 1) {
 			drawGrid(g);
@@ -327,21 +251,6 @@ public class Tetris extends Game {
 		displayScore(g);
 		
 	}
-	
-	public void playAgain() {
-		resetPiece();
-		initGrid();
-		show = 0;
-		score = 0;
-		changeX = 6;
-		changeY = 1;
-		song.lastFrame = 0;
-		song.setPos();
-	}
-	
-	public void setVisibility(boolean b) {j.setVisible(b);}
-
-
 
 	public void run() {
 		

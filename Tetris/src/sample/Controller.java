@@ -1,15 +1,18 @@
 package sample;
 
+import ServerSide.Client;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.Socket;
 
 
 public class Controller {
     public static final Game game = new Tetris();
+    @FXML
+    private TextArea textArea;
 
     @FXML
     public void startTetris(){
@@ -20,9 +23,17 @@ public class Controller {
         System.exit(0);
     }
     @FXML
+    public void showHighScores() throws IOException {
+        Socket socket = new Socket("localhost", 25505);
+        Client client = new Client(socket);
+        String HS = client.GETHIGHSCORES();
+        textArea.setText(HS);
+    }
+    @FXML
     public void initialize() throws IOException {
 
     }
+
 
 
 }
