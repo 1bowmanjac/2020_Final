@@ -13,3 +13,6 @@ The Configs use java azul 11
 clone the repo 
 open the project folder from intelliJ 
 run main and server by using the main and server run configs
+
+Sanjay and Romulo made the sound, tetris, and game class
+Jack made the main menu, highscore functionallity, and repo
