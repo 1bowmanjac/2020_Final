@@ -10,12 +10,13 @@ import java.net.Socket;
 
 
 public class Controller {
-    public static final Game game = new Tetris();
+    Game game;
     @FXML
     private TextArea textArea;
 
     @FXML
     public void startTetris(){
+        Game game = new Tetris();
         game.run();
     }
     @FXML

@@ -210,6 +210,7 @@ public class Tetris extends Game {
 	
 	public void gameOver(Graphics g) throws IOException {
 		j.setVisible(false);
+
 	}
 	
 	public  void displayScore(Graphics g) {
