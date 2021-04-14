@@ -2,7 +2,7 @@
 This assignment is a simple tetris game that implements a shared highscore system between multiple clients
 
 
-![Alt text](Screenshot_from_2021-04-14_13-01-15.png?raw=true "running program")
+![image](https://user-images.githubusercontent.com/27737516/114751086-b4a39380-9d22-11eb-83a1-11de68006a8e.png)
 
 
 included in the repo is a video showing the various features of the program
